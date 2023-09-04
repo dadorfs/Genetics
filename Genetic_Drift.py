@@ -1,7 +1,7 @@
-#%% [markdown]
+# %% [markdown]
 ## Genetic Drift
 
-#%%
+# %%
 import random
 import matplotlib.pyplot as plt
 
@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 # At a biallelic locus we have alleles A and B with frequencies $p$ and $q$, respectively, 
 # and a population size $N$ of 50. Therefore, the total number of alleles in the sampling pool is $2N$ 
 
-#%%
+# %%
 alleles = ["A", "B"]
 freq_A = 0.5
 freq_B = 1 - freq_A
@@ -46,10 +46,9 @@ print(f"Frequency A: {freq_A_nextgen}")
 print(f"Frequency B: {freq_B_nextgen}")
 
 # %% [markdown]
-# After one generation the allele frequencies of A and B have gone from 0.5 to 0.61 and 0.39, respectively,
-# due to random sampling. Using the same starting parameters, what does the distribution of the frequency of
-# A after one generation look like?
-
+# After one generation the allele frequencies of A and B have gone from 0.5
+# to 0.61 and 0.39, respectively, due to random sampling. Using the same starting parameters, 
+# what does the distribution of the frequency of A after one generation look like? 
 # %%
 freq_A_rep = []
 
@@ -114,7 +113,7 @@ plt.show()
 
 # %% [markdown]
 ### Change in allele frequency over several generations
-# Lets expand the basics of drift to many generations. One important adjustment that needs to be made is to 
+# Lets expand the process of drift over many generations. One important adjustment that needs to be made is to 
 # track changes in allele frequency across generations. The updated allele frequencies
 # serve as the sampling probabilities/weights for the following generation.
 # %%
@@ -187,15 +186,12 @@ def drift_over_time(freq_A=0.5, pop_size=100, generations=100, num_simulations=1
 random.seed(123)
 plt.figure(figsize=(15, 4)) 
 
-# Plot for pop_size = 10
 plt.subplot(1, 3, 1)
 drift_over_time(pop_size=10, num_simulations=10)
 
-# Plot for pop_size = 20
 plt.subplot(1, 3, 2)
 drift_over_time(pop_size=100, num_simulations=10)
 
-# Plot for pop_size = 30
 plt.subplot(1, 3, 3)
 drift_over_time(pop_size=1000, num_simulations=10)
 
@@ -204,7 +200,7 @@ plt.show()
 
 # %% [markdown]
 # Here we have 10 simulations for populations of 10, 100, and 1000 members in size. The effect of population
-# size on is clear. For populations with 10 members, increased sampling error causes dramatic fluctuations in 
+# size on allele frequency is clear. For populations with 10 members, increased sampling error causes dramatic fluctuations in 
 # allele frequency. As a result, all simulations are fixed within 60 generations. Conversely, the allele frequency 
 # in the 1000-member population has changed only modestly. It's important to note that, under this model framework,
 # alleles cannot become unfixed. Consequently, regardless of the initial population size, all simulations will 
